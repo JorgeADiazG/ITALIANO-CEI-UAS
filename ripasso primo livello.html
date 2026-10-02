@@ -111,32 +111,112 @@
 </div>
 
 <script>
+    // Questo array contiene tutti gli esercizi della pagina 3 (senza articoli indeterminati)
     const quizData = [
-      { q: "Qual è il plurale di 'quaderno'?", o: ["quaderni", "quaderna", "quaderno"], a: 0 },
-      { q: "Qual è il plurale di 'stazione'?", o: ["stazioni", "stazione", "staziona"], a: 0 },
-      { q: "Scegli l'articolo corretto: ___ gatto", o: ["il", "lo", "la"], a: 0 },
-      { q: "Scegli l'articolo corretto: ___ studente", o: ["il", "lo", "l'"], a: 1 },
-      { q: "Scegli l'articolo corretto: ___ esame", o: ["il", "lo", "l'"], a: 2 },
-      { q: "Scegli l'articolo corretto: ___ ragazza", o: ["il", "la", "le"], a: 1 },
-      { q: "Volgi al plurale: 'lo zaino'", o: ["i zaini", "gli zaini", "le zaini"], a: 1 },
-      { q: "Volgi al plurale: 'l'orologio'", o: ["gli orologi", "i orologi", "le orologi"], a: 0 },
-      { q: "Volgi al plurale: 'la studentessa'", o: ["le studentesse", "i studentessi", "gli studentesse"], a: 0 },
-      { q: "Volgi al plurale: 'tavolo rosso'", o: ["tavoli rosso", "tavole rosse", "tavoli rossi"], a: 2 },
-      { q: "Volgi al plurale: 'casa rossa'", o: ["case rosse", "casi rossi", "case rossi"], a: 0 },
-      { q: "Volgi al plurale: 'maglione blu'", o: ["maglioni blu", "maglioni blui", "maglione blu"], a: 0 },
-      { q: "Volgi al plurale: 'parete rosa'", o: ["pareti rose", "parete rosa", "pareti rosa"], a: 2 },
-      { q: "Volgi al plurale: 'madre gentile'", o: ["madri gentile", "madre gentili", "madri gentili"], a: 2 },
-      { q: "Volgi al plurale: 'treno veloce'", o: ["treni veloci", "treni veloce", "treno veloci"], a: 0 },
+      // ESERCIZIO 5 & 6
+      { q: "Articolo determinativo e plurale: 'soffitto'", o: ["i soffitti", "le soffitti", "gli soffitti"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'muro'", o: ["i muri", "le muri", "gli muri"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'medico'", o: ["i medici", "i medichi", "le medici"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'disco'", o: ["i dischi", "i disci", "le dische"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'gatto'", o: ["i gatti", "le gatti", "gli gatti"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'padre'", o: ["i padri", "le padri", "gli padri"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'mare'", o: ["i mari", "le mare", "gli mari"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'fiore'", o: ["i fiori", "le fior", "gli fiori"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'cane'", o: ["i cani", "le cani", "gli cani"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'inglese'", o: ["gli inglesi", "i inglesi", "le inglesi"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'zucchero'", o: ["gli zuccheri", "i zuccheri", "le zuccheri"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'orologio'", o: ["gli orologi", "i orologi", "le orologi"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'uomo'", o: ["gli uomini", "i uomini", "le uomini"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'amico'", o: ["gli amici", "i amici", "gli amichi"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'zio'", o: ["gli zii", "i zii", "le zii"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'studente'", o: ["gli studenti", "i studenti", "le studenti"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'sedia'", o: ["le sedie", "i sedie", "la sedie"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'casa'", o: ["le case", "i case", "la case"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'finestra'", o: ["le finestre", "i finestre", "gli finestre"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'mela'", o: ["le mele", "i meli", "la mele"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'chiave'", o: ["le chiavi", "i chiavi", "la chiavi"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'madre'", o: ["le madri", "i madri", "la madri"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'traduzione'", o: ["le traduzioni", "i traduzioni", "gli traduzioni"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'luce'", o: ["le luci", "i luci", "la luci"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'matita'", o: ["le matite", "i matiti", "la matite"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'immagine'", o: ["le immagini", "i immagini", "gli immagini"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'sigaretta'", o: ["le sigarette", "i sigaretti", "la sigarette"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'tavolo'", o: ["i tavoli", "le tavole", "gli tavoli"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'forchetta'", o: ["le forchette", "i forchetti", "la forchette"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'letto'", o: ["i letti", "le letti", "gli letti"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'scarpa'", o: ["le scarpe", "i scarpi", "la scarpe"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'bottiglia'", o: ["le bottiglie", "i bottigli", "la bottiglie"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'albero'", o: ["gli alberi", "i alberi", "le alberi"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'elefante'", o: ["gli elefanti", "i elefanti", "le elefanti"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'giornale'", o: ["i giornali", "le giornali", "gli giornali"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'libro'", o: ["i libri", "le libri", "gli libri"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'straniero'", o: ["gli stranieri", "i stranieri", "le stranieri"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'dente'", o: ["i denti", "le denti", "gli denti"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'lingua'", o: ["le lingue", "i lingui", "le lingui"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'specchio'", o: ["gli specchi", "i specchi", "le specchi"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'vino'", o: ["i vini", "le vini", "gli vini"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'birra'", o: ["le birre", "i birri", "la birre"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'studentessa'", o: ["le studentesse", "i studentessi", "gli studentesse"], a: 0 },
+      
+      // ESERCIZIO 7
       { q: "Volgi al plurale: 'amica'", o: ["amiche", "amici", "amice"], a: 0 },
-      { q: "Volgi al plurale: 'lago'", o: ["lagi", "laghi", "laghe"], a: 1 },
-      { q: "Volgi al plurale: 'greco'", o: ["grechi", "greci", "greche"], a: 1 },
-      { q: "Volgi al plurale: 'il vino è secco'", o: ["i vini sono secchi", "i vini sono secci", "le vini sono secchi"], a: 0 },
-      { q: "Volgi al plurale: 'la stanza è piccola'", o: ["le stanze sono piccole", "le stanzi sono piccole", "i stanze sono piccoli"], a: 0 },
-      { q: "Volgi al plurale: 'la lezione è finita'", o: ["le lezioni sono finite", "le lezioni sono finiti", "i lezioni sono finiti"], a: 0 },
-      { q: "Volgi al plurale: 'il bicchiere è pieno'", o: ["i bicchieri sono pieni", "gli bicchieri sono pieni", "i bicchieri sono piene"], a: 0 },
-      { q: "Volgi al plurale: 'la mela è dolce'", o: ["le mele sono dolci", "le mele sono dolce", "i meli sono dolci"], a: 0 },
-      { q: "Volgi al plurale: 'la strada è stretta'", o: ["le strade sono strette", "le stadi sono stretti", "le strade sono stretti"], a: 0 },
-      { q: "Volgi al plurale: 'il caffè è caldo'", o: ["i caffè sono caldi", "i caffè sono calde", "gli caffè sono caldi"], a: 0 }
+      { q: "Volgi al plurale: 'giacca'", o: ["giacche", "giacce", "giacchi"], a: 0 },
+      { q: "Volgi al plurale: 'luogo'", o: ["luoghi", "luogi", "luoge"], a: 0 },
+      { q: "Volgi al plurale: 'lago'", o: ["laghi", "lagi", "laghe"], a: 0 },
+      { q: "Volgi al plurale: 'austriaca'", o: ["austriache", "austriace", "austriachi"], a: 0 },
+      { q: "Volgi al plurale: 'fuoco'", o: ["fuochi", "fuoci", "fuoce"], a: 0 },
+      { q: "Volgi al plurale: 'pacco'", o: ["pacchi", "pacci", "pacce"], a: 0 },
+      { q: "Volgi al plurale: 'tedesca'", o: ["tedesche", "tedesce", "tedeschi"], a: 0 },
+      { q: "Volgi al plurale: 'greco'", o: ["greci", "grechi", "greche"], a: 0 },
+      { q: "Volgi al plurale: 'barca'", o: ["barche", "barce", "barchi"], a: 0 },
+
+      // ESERCIZIO 8
+      { q: "Articolo e plurale: 'casa nuova'", o: ["le case nuove", "i casi nuovi", "le case nuovi"], a: 0 },
+      { q: "Articolo e plurale: 'libro vecchio'", o: ["i libri vecchi", "le libri vecchie", "gli libri vecchi"], a: 0 },
+      { q: "Articolo e plurale: 'ragazza gentile'", o: ["le ragazze gentili", "i ragazzi gentili", "le ragazze gentile"], a: 0 },
+      { q: "Articolo e plurale: 'uomo interessante'", o: ["gli uomini interessanti", "i uomini interessanti", "le uomini interessanti"], a: 0 },
+      { q: "Articolo e plurale: 'bottiglia vuota'", o: ["le bottiglie vuote", "i bottigli vuoti", "le bottiglie vuoti"], a: 0 },
+      { q: "Articolo e plurale: 'vino dolce'", o: ["i vini dolci", "le vini dolci", "gli vini dolci"], a: 0 },
+      { q: "Articolo e plurale: 'vetro rotto'", o: ["i vetri rotti", "le vetri rotte", "gli vetri rotti"], a: 0 },
+      { q: "Articolo e plurale: 'chiave piccola'", o: ["le chiavi piccole", "i chiavi piccoli", "le chiavi piccoli"], a: 0 },
+      { q: "Articolo e plurale: 'madre affettuosa'", o: ["le madri affettuose", "i madri affettuosi", "le madri affettuosi"], a: 0 },
+      { q: "Articolo e plurale: 'studente giovane'", o: ["gli studenti giovani", "i studenti giovani", "le studenti giovani"], a: 0 },
+      { q: "Articolo e plurale: 'bicchiere pieno'", o: ["i bicchieri pieni", "le bicchieri piene", "gli bicchieri pieni"], a: 0 },
+      { q: "Articolo e plurale: 'insegnante simpatico'", o: ["gli insegnanti simpatici", "i insegnanti simpatici", "le insegnanti simpatiche"], a: 0 },
+      { q: "Articolo e plurale: 'giacca verde'", o: ["le giacche verdi", "le giacce verdi", "i giacchi verdi"], a: 0 },
+      { q: "Articolo e plurale: 'pacco leggero'", o: ["i pacchi leggeri", "i pacci leggeri", "le pacche leggere"], a: 0 },
+      { q: "Articolo e plurale: 'sedia utile'", o: ["le sedie utili", "i sedi utili", "le sedie utile"], a: 0 },
+      { q: "Articolo e plurale: 'penna rossa'", o: ["le penne rosse", "i penni rossi", "le penne rossi"], a: 0 },
+      { q: "Articolo e plurale: 'treno veloce'", o: ["i treni veloci", "i treni veloce", "le treni veloci"], a: 0 },
+      { q: "Articolo e plurale: 'esercizio facile'", o: ["gli esercizi facili", "i esercizi facili", "le esercizi facili"], a: 0 },
+      { q: "Articolo e plurale: 'donna intelligente'", o: ["le donne intelligenti", "i donne intelligenti", "le donne intelligente"], a: 0 },
+      { q: "Articolo e plurale: 'forchetta pulita'", o: ["le forchette pulite", "i forchetti puliti", "le forchette puliti"], a: 0 },
+      { q: "Articolo e plurale: 'frase semplice'", o: ["le frasi semplici", "i frasi semplici", "le frasi semplice"], a: 0 },
+      { q: "Articolo e plurale: 'amico caro'", o: ["gli amici cari", "i amici cari", "le amiche care"], a: 0 },
+
+      // ESERCIZIO 11
+      { q: "Volgi al plurale: 'La bistecca è cruda'", o: ["Le bistecche sono crude", "Le bistecca sono crude", "I bistecche sono crudi"], a: 0 },
+      { q: "Volgi al plurale: 'Il vino è secco'", o: ["I vini sono secchi", "I vini sono secci", "Le vini sono secchi"], a: 0 },
+      { q: "Volgi al plurale: 'L'orologio è rotto'", o: ["Gli orologi sono rotti", "I orologi sono rotti", "Le orologi sono rotti"], a: 0 },
+      { q: "Volgi al plurale: 'L'amica è simpatica'", o: ["Le amiche sono simpatiche", "Le amici sono simpatici", "Gli amiche sono simpatiche"], a: 0 },
+      { q: "Volgi al plurale: 'La stanza è piccola'", o: ["Le stanze sono piccole", "Le stanzi sono piccole", "I stanze sono piccoli"], a: 0 },
+      { q: "Volgi al plurale: 'Il mio amico non è alto'", o: ["I miei amici non sono alti", "Gli miei amici non sono alti", "Le mie amiche non sono alti"], a: 0 },
+      { q: "Volgi al plurale: 'L'albero è vecchio'", o: ["Gli alberi sono vecchi", "I alberi sono vecchi", "Le alberi sono vecchie"], a: 0 },
+      { q: "Volgi al plurale: 'Lo studente è intelligente'", o: ["Gli studenti sono intelligenti", "I studenti sono intelligenti", "Le studenti sono intelligenti"], a: 0 },
+      { q: "Volgi al plurale: 'La città è caotica'", o: ["Le città sono caotiche", "Le citti sono caotici", "I città sono caotici"], a: 0 },
+      { q: "Volgi al plurale: 'Il libro è interessante'", o: ["I libri sono interessanti", "Le libri sono interessanti", "Gli libri sono interessanti"], a: 0 },
+      { q: "Volgi al plurale: 'La sedia è occupata'", o: ["Le sedie sono occupate", "I sedi sono occupati", "Le sedie sono occupati"], a: 0 },
+      { q: "Volgi al plurale: 'Il tavolo è nuovo'", o: ["I tavoli sono nuovi", "Le tavole sono nuove", "Gli tavoli sono nuovi"], a: 0 },
+      { q: "Volgi al plurale: 'La lezione è finita'", o: ["Le lezioni sono finite", "I lezioni sono finiti", "Le lezioni sono finiti"], a: 0 },
+      { q: "Volgi al plurale: 'Il caffè è caldo'", o: ["I caffè sono caldi", "I caffè sono calde", "Le caffè sono calde"], a: 0 },
+      { q: "Volgi al plurale: 'La zuppa è fredda'", o: ["Le zuppe sono fredde", "I zuppi sono freddi", "Le zuppe sono freddi"], a: 0 },
+      { q: "Volgi al plurale: 'Questo bicchiere è sporco'", o: ["Questi bicchieri sono sporchi", "Queste bicchiere sono sporche", "Questi bicchieri sono sporce"], a: 0 },
+      { q: "Volgi al plurale: 'La ragazza è arrabbiata'", o: ["Le ragazze sono arrabbiate", "I ragazzi sono arrabbiati", "Le ragazze sono arrabbiati"], a: 0 },
+      { q: "Volgi al plurale: 'Il letto è troppo piccolo'", o: ["I letti sono troppo piccoli", "Le letti sono troppo piccole", "Gli letti sono troppo piccoli"], a: 0 },
+      { q: "Volgi al plurale: 'Il treno è affollato'", o: ["I treni sono affollati", "Le treni sono affollate", "Gli treni sono affollati"], a: 0 },
+      { q: "Volgi al plurale: 'La strada è stretta'", o: ["Le strade sono strette", "I stadi sono stretti", "Le strade sono stretti"], a: 0 },
+      { q: "Volgi al plurale: 'Questo problema è difficile'", o: ["Questi problemi sono difficili", "Queste problemi sono difficili", "Questi problemi sono difficile"], a: 0 },
+      { q: "Volgi al plurale: 'La mela è dolce'", o: ["Le mele sono dolci", "I meli sono dolci", "Le mele sono dolce"], a: 0 }
     ];
 
     let currentQ = 0;
@@ -146,6 +226,18 @@
     const optionsEl = document.getElementById('options');
     const nextBtn = document.getElementById('next');
     const progressEl = document.getElementById('progress');
+
+    // Funzione per mischiare casualmente le domande (Fisher-Yates shuffle)
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    // Mischiamo le domande all'avvio per non renderlo noioso
+    shuffle(quizData);
 
     function loadQuestion() {
         nextBtn.style.display = 'none';
