@@ -113,6 +113,7 @@
 <script>
     // Questo array contiene tutti gli esercizi della pagina 3 (senza articoli indeterminati)
     const quizData = [
+      const quizData = [
       // ESERCIZIO 5 & 6
       { q: "Articolo determinativo e plurale: 'soffitto'", o: ["i soffitti", "le soffitti", "gli soffitti"], a: 0 },
       { q: "Articolo determinativo e plurale: 'muro'", o: ["i muri", "le muri", "gli muri"], a: 0 },
@@ -157,7 +158,33 @@
       { q: "Articolo determinativo e plurale: 'vino'", o: ["i vini", "le vini", "gli vini"], a: 0 },
       { q: "Articolo determinativo e plurale: 'birra'", o: ["le birre", "i birri", "la birre"], a: 0 },
       { q: "Articolo determinativo e plurale: 'studentessa'", o: ["le studentesse", "i studentessi", "gli studentesse"], a: 0 },
-      
+      { q: "Articolo determinativo e plurale: 'tetto'", o: ["i tetti", "le tetti", "gli tetti"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'foglio'", o: ["i fogli", "le fogli", "gli fogli"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'museo'", o: ["i musei", "le musei", "gli musei"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'coltello'", o: ["i coltelli", "le coltelli", "gli coltelli"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'direttore'", o: ["i direttori", "le direttori", "gli direttori"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'sapone'", o: ["i saponi", "le saponi", "gli saponi"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'bicchiere'", o: ["i bicchieri", "le bicchieri", "gli bicchieri"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'fiume'", o: ["i fiumi", "le fiumi", "gli fiumi"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'uccello'", o: ["gli uccelli", "i uccelli", "le uccelli"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'occhio'", o: ["gli occhi", "i occhi", "le occhie"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'stadio'", o: ["gli stadi", "i stadi", "le stadi"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'coperta'", o: ["le coperte", "i coperti", "la coperte"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'scuola'", o: ["le scuole", "i scuoli", "gli scuole"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'spiegazione'", o: ["le spiegazioni", "i spiegazioni", "gli spiegazioni"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'arte'", o: ["le arti", "i arti", "gli arti"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'estate'", o: ["le estati", "i estati", "gli estati"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'vaso'", o: ["i vasi", "le vase", "gli vasi"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'pentola'", o: ["le pentole", "i pentoli", "gli pentole"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'cuscino'", o: ["i cuscini", "le cuscini", "gli cuscini"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'cappotto'", o: ["i cappotti", "le cappotti", "gli cappotti"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'tazza'", o: ["le tazze", "i tazzi", "gli tazze"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'armadio'", o: ["gli armadi", "i armadi", "le armadi"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'tovaglia'", o: ["le tovaglie", "i tovagli", "gli tovaglie"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'piede'", o: ["i piedi", "le piedi", "gli piedi"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'vestito'", o: ["i vestiti", "le vestite", "gli vestiti"], a: 0 },
+      { q: "Articolo determinativo e plurale: 'telefono'", o: ["i telefoni", "le telefoni", "gli telefoni"], a: 0 },
+
       // ESERCIZIO 7
       { q: "Volgi al plurale: 'amica'", o: ["amiche", "amici", "amice"], a: 0 },
       { q: "Volgi al plurale: 'giacca'", o: ["giacche", "giacce", "giacchi"], a: 0 },
@@ -193,6 +220,19 @@
       { q: "Articolo e plurale: 'forchetta pulita'", o: ["le forchette pulite", "i forchetti puliti", "le forchette puliti"], a: 0 },
       { q: "Articolo e plurale: 'frase semplice'", o: ["le frasi semplici", "i frasi semplici", "le frasi semplice"], a: 0 },
       { q: "Articolo e plurale: 'amico caro'", o: ["gli amici cari", "i amici cari", "le amiche care"], a: 0 },
+
+      // ESERCIZIO 9 & 10
+      { q: "Volgi al plurale: 'La camicia è pulita'", o: ["Le camicie sono pulite", "Le camice sono puliti", "I camicie sono puliti"], a: 0 },
+      { q: "Volgi al plurale: 'L'uomo è cattivo'", o: ["Gli uomini sono cattivi", "I uomini sono cattivi", "Le uomini sono cattive"], a: 0 },
+      { q: "Volgi al plurale: 'Il quaderno è vecchio'", o: ["I quaderni sono vecchi", "I quaderni sono vecchie", "Gli quaderni sono vecchi"], a: 0 },
+      { q: "Volgi al plurale: 'L'esercizio è facile'", o: ["Gli esercizi sono facili", "I esercizi sono facili", "Le esercizi sono facili"], a: 0 },
+      { q: "Volgi al plurale: 'La città è silenziosa'", o: ["Le città sono silenziose", "Le citti sono silenziosi", "I città sono silenziosi"], a: 0 },
+      { q: "Volgi al plurale: 'Il film è noioso'", o: ["I film sono noiosi", "I filmi sono noiosi", "Le film sono noiose"], a: 0 },
+      { q: "Volgi al plurale: 'Il ristorante è caro'", o: ["I ristoranti sono cari", "I ristoranti sono care", "Le ristoranti sono cari"], a: 0 },
+      { q: "Volgi al plurale: 'L'appartamento è nuovo'", o: ["Gli appartamenti sono nuovi", "I appartamenti sono nuovi", "Le appartamenti sono nuove"], a: 0 },
+      { q: "Volgi al plurale: 'Il turista è simpatico'", o: ["I turisti sono simpatici", "Gli turisti sono simpatici", "Le turisti sono simpatici"], a: 0 },
+      { q: "Volgi al plurale: 'Il museo è aperto'", o: ["I musei sono aperti", "Gli musei sono aperti", "Le musei sono aperte"], a: 0 },
+      { q: "Volgi al plurale: 'Il pantalone è largo'", o: ["I pantaloni sono larghi", "I pantaloni sono largi", "Gli pantaloni sono larghi"], a: 0 },
 
       // ESERCIZIO 11
       { q: "Volgi al plurale: 'La bistecca è cruda'", o: ["Le bistecche sono crude", "Le bistecca sono crude", "I bistecche sono crudi"], a: 0 },
@@ -239,18 +279,33 @@
     // Mischiamo le domande all'avvio per non renderlo noioso
     shuffle(quizData);
 
-    function loadQuestion() {
+   function loadQuestion() {
         nextBtn.style.display = 'none';
         progressEl.innerText = `Domanda ${currentQ + 1} di ${quizData.length}`;
         const q = quizData[currentQ];
         questionEl.innerText = q.q;
         optionsEl.innerHTML = '';
         
-        q.o.forEach((opt, index) => {
+        // Emparejamos cada opción con su validez original
+        let opzioni = q.o.map((opt, index) => ({ testo: opt, isCorrect: (index === q.a) }));
+        
+        // Mezclamos las opciones aleatoriamente para el alumno (Fisher-Yates shuffle)
+        for (let i = opzioni.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [opzioni[i], opzioni[j]] = [opzioni[j], opzioni[i]];
+        }
+        
+        opzioni.forEach((optObj) => {
             const btn = document.createElement('button');
             btn.className = 'option';
-            btn.innerText = opt;
-            btn.onclick = () => selectOption(btn, index === q.a);
+            btn.innerText = optObj.testo;
+            
+            // Etiquetamos internamente la opción correcta para encontrarla si el alumno falla
+            if (optObj.isCorrect) {
+                btn.dataset.correct = "true";
+            }
+            
+            btn.onclick = () => selectOption(btn, optObj.isCorrect);
             optionsEl.appendChild(btn);
         });
     }
@@ -266,7 +321,9 @@
             score++;
         } else {
             btn.classList.add('wrong');
-            buttons[quizData[currentQ].a].classList.add('correct');
+            // Resaltamos automáticamente cuál era la correcta
+            const correctBtn = optionsEl.querySelector('[data-correct="true"]');
+            if (correctBtn) correctBtn.classList.add('correct');
         }
         nextBtn.style.display = 'block';
     }
