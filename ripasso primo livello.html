@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ripasso di Italiano - Lezione I</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 1.4rem;
+            text-align: center;
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .progress {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .question {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        .option {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fafafa;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .option:active {
+            transform: scale(0.98);
+        }
+        .option:disabled {
+            cursor: default;
+        }
+        .option.correct {
+            border-color: #28a745;
+            background: #d4edda;
+            color: #155724;
+        }
+        .option.wrong {
+            border-color: #dc3545;
+            background: #f8d7da;
+            color: #721c24;
+        }
+        button.next-btn {
+            display: none;
+            width: 100%;
+            padding: 16px;
+            background: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            -webkit-tap-highlight-color: transparent;
+        }
+        button.next-btn:active {
+            background: #004494;
+        }
+        .result-container {
+            text-align: center;
+        }
+        .result-score {
+            font-size: 3rem;
+            color: #0056b3;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="quiz-container">
+    <h1>Esercizi: Strutture Elementari</h1>
+    <div class="progress" id="progress"></div>
+    <div class="question" id="question"></div>
+    <div id="options"></div>
+    <button class="next-btn" id="next">Avanti</button>
+</div>
+
+<script>
+    const quizData = [
+      { q: "Qual è il plurale di 'quaderno'?", o: ["quaderni", "quaderna", "quaderno"], a: 0 },
+      { q: "Qual è il plurale di 'stazione'?", o: ["stazioni", "stazione", "staziona"], a: 0 },
+      { q: "Scegli l'articolo corretto: ___ gatto", o: ["il", "lo", "la"], a: 0 },
+      { q: "Scegli l'articolo corretto: ___ studente", o: ["il", "lo", "l'"], a: 1 },
+      { q: "Scegli l'articolo corretto: ___ esame", o: ["il", "lo", "l'"], a: 2 },
+      { q: "Scegli l'articolo corretto: ___ ragazza", o: ["il", "la", "le"], a: 1 },
+      { q: "Volgi al plurale: 'lo zaino'", o: ["i zaini", "gli zaini", "le zaini"], a: 1 },
+      { q: "Volgi al plurale: 'l'orologio'", o: ["gli orologi", "i orologi", "le orologi"], a: 0 },
+      { q: "Volgi al plurale: 'la studentessa'", o: ["le studentesse", "i studentessi", "gli studentesse"], a: 0 },
+      { q: "Volgi al plurale: 'tavolo rosso'", o: ["tavoli rosso", "tavole rosse", "tavoli rossi"], a: 2 },
+      { q: "Volgi al plurale: 'casa rossa'", o: ["case rosse", "casi rossi", "case rossi"], a: 0 },
+      { q: "Volgi al plurale: 'maglione blu'", o: ["maglioni blu", "maglioni blui", "maglione blu"], a: 0 },
+      { q: "Volgi al plurale: 'parete rosa'", o: ["pareti rose", "parete rosa", "pareti rosa"], a: 2 },
+      { q: "Volgi al plurale: 'madre gentile'", o: ["madri gentile", "madre gentili", "madri gentili"], a: 2 },
+      { q: "Volgi al plurale: 'treno veloce'", o: ["treni veloci", "treni veloce", "treno veloci"], a: 0 },
+      { q: "Volgi al plurale: 'amica'", o: ["amiche", "amici", "amice"], a: 0 },
+      { q: "Volgi al plurale: 'lago'", o: ["lagi", "laghi", "laghe"], a: 1 },
+      { q: "Volgi al plurale: 'greco'", o: ["grechi", "greci", "greche"], a: 1 },
+      { q: "Volgi al plurale: 'il vino è secco'", o: ["i vini sono secchi", "i vini sono secci", "le vini sono secchi"], a: 0 },
+      { q: "Volgi al plurale: 'la stanza è piccola'", o: ["le stanze sono piccole", "le stanzi sono piccole", "i stanze sono piccoli"], a: 0 },
+      { q: "Volgi al plurale: 'la lezione è finita'", o: ["le lezioni sono finite", "le lezioni sono finiti", "i lezioni sono finiti"], a: 0 },
+      { q: "Volgi al plurale: 'il bicchiere è pieno'", o: ["i bicchieri sono pieni", "gli bicchieri sono pieni", "i bicchieri sono piene"], a: 0 },
+      { q: "Volgi al plurale: 'la mela è dolce'", o: ["le mele sono dolci", "le mele sono dolce", "i meli sono dolci"], a: 0 },
+      { q: "Volgi al plurale: 'la strada è stretta'", o: ["le strade sono strette", "le stadi sono stretti", "le strade sono stretti"], a: 0 },
+      { q: "Volgi al plurale: 'il caffè è caldo'", o: ["i caffè sono caldi", "i caffè sono calde", "gli caffè sono caldi"], a: 0 }
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+    const container = document.getElementById('quiz-container');
+    const questionEl = document.getElementById('question');
+    const optionsEl = document.getElementById('options');
+    const nextBtn = document.getElementById('next');
+    const progressEl = document.getElementById('progress');
+
+    function loadQuestion() {
+        nextBtn.style.display = 'none';
+        progressEl.innerText = `Domanda ${currentQ + 1} di ${quizData.length}`;
+        const q = quizData[currentQ];
+        questionEl.innerText = q.q;
+        optionsEl.innerHTML = '';
+        
+        q.o.forEach((opt, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'option';
+            btn.innerText = opt;
+            btn.onclick = () => selectOption(btn, index === q.a);
+            optionsEl.appendChild(btn);
+        });
+    }
+
+    function selectOption(btn, isCorrect) {
+        const buttons = optionsEl.querySelectorAll('.option');
+        buttons.forEach(b => { 
+            b.disabled = true; 
+        });
+        
+        if (isCorrect) {
+            btn.classList.add('correct');
+            score++;
+        } else {
+            btn.classList.add('wrong');
+            buttons[quizData[currentQ].a].classList.add('correct');
+        }
+        nextBtn.style.display = 'block';
+    }
+
+    nextBtn.onclick = () => {
+        currentQ++;
+        if (currentQ < quizData.length) {
+            loadQuestion();
+        } else {
+            container.innerHTML = `
+                <div class="result-container">
+                    <h2>Risultato Finale</h2>
+                    <p>Hai completato l'esercizio!</p>
+                    <div class="result-score">${score} / ${quizData.length}</div>
+                    <button class="next-btn" style="display:block;" onclick="location.reload()">Riprova</button>
+                </div>`;
+        }
+    };
+
+    // Inizializza il quiz
+    loadQuestion();
+</script>
+
+</body>
+</html>
