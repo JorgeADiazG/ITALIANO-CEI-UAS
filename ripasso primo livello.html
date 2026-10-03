@@ -111,10 +111,7 @@
 </div>
 
 <script>
-    // Questo array contiene tutti gli esercizi della pagina 3 (senza articoli indeterminati)
     const quizData = [
-      const quizData = [
-      // ESERCIZIO 5 & 6
       { q: "Articolo determinativo e plurale: 'soffitto'", o: ["i soffitti", "le soffitti", "gli soffitti"], a: 0 },
       { q: "Articolo determinativo e plurale: 'muro'", o: ["i muri", "le muri", "gli muri"], a: 0 },
       { q: "Articolo determinativo e plurale: 'medico'", o: ["i medici", "i medichi", "le medici"], a: 0 },
@@ -184,8 +181,6 @@
       { q: "Articolo determinativo e plurale: 'piede'", o: ["i piedi", "le piedi", "gli piedi"], a: 0 },
       { q: "Articolo determinativo e plurale: 'vestito'", o: ["i vestiti", "le vestite", "gli vestiti"], a: 0 },
       { q: "Articolo determinativo e plurale: 'telefono'", o: ["i telefoni", "le telefoni", "gli telefoni"], a: 0 },
-
-      // ESERCIZIO 7
       { q: "Volgi al plurale: 'amica'", o: ["amiche", "amici", "amice"], a: 0 },
       { q: "Volgi al plurale: 'giacca'", o: ["giacche", "giacce", "giacchi"], a: 0 },
       { q: "Volgi al plurale: 'luogo'", o: ["luoghi", "luogi", "luoge"], a: 0 },
@@ -196,8 +191,6 @@
       { q: "Volgi al plurale: 'tedesca'", o: ["tedesche", "tedesce", "tedeschi"], a: 0 },
       { q: "Volgi al plurale: 'greco'", o: ["greci", "grechi", "greche"], a: 0 },
       { q: "Volgi al plurale: 'barca'", o: ["barche", "barce", "barchi"], a: 0 },
-
-      // ESERCIZIO 8
       { q: "Articolo e plurale: 'casa nuova'", o: ["le case nuove", "i casi nuovi", "le case nuovi"], a: 0 },
       { q: "Articolo e plurale: 'libro vecchio'", o: ["i libri vecchi", "le libri vecchie", "gli libri vecchi"], a: 0 },
       { q: "Articolo e plurale: 'ragazza gentile'", o: ["le ragazze gentili", "i ragazzi gentili", "le ragazze gentile"], a: 0 },
@@ -220,8 +213,6 @@
       { q: "Articolo e plurale: 'forchetta pulita'", o: ["le forchette pulite", "i forchetti puliti", "le forchette puliti"], a: 0 },
       { q: "Articolo e plurale: 'frase semplice'", o: ["le frasi semplici", "i frasi semplici", "le frasi semplice"], a: 0 },
       { q: "Articolo e plurale: 'amico caro'", o: ["gli amici cari", "i amici cari", "le amiche care"], a: 0 },
-
-      // ESERCIZIO 9 & 10
       { q: "Volgi al plurale: 'La camicia è pulita'", o: ["Le camicie sono pulite", "Le camice sono puliti", "I camicie sono puliti"], a: 0 },
       { q: "Volgi al plurale: 'L'uomo è cattivo'", o: ["Gli uomini sono cattivi", "I uomini sono cattivi", "Le uomini sono cattive"], a: 0 },
       { q: "Volgi al plurale: 'Il quaderno è vecchio'", o: ["I quaderni sono vecchi", "I quaderni sono vecchie", "Gli quaderni sono vecchi"], a: 0 },
@@ -233,8 +224,6 @@
       { q: "Volgi al plurale: 'Il turista è simpatico'", o: ["I turisti sono simpatici", "Gli turisti sono simpatici", "Le turisti sono simpatici"], a: 0 },
       { q: "Volgi al plurale: 'Il museo è aperto'", o: ["I musei sono aperti", "Gli musei sono aperti", "Le musei sono aperte"], a: 0 },
       { q: "Volgi al plurale: 'Il pantalone è largo'", o: ["I pantaloni sono larghi", "I pantaloni sono largi", "Gli pantaloni sono larghi"], a: 0 },
-
-      // ESERCIZIO 11
       { q: "Volgi al plurale: 'La bistecca è cruda'", o: ["Le bistecche sono crude", "Le bistecca sono crude", "I bistecche sono crudi"], a: 0 },
       { q: "Volgi al plurale: 'Il vino è secco'", o: ["I vini sono secchi", "I vini sono secci", "Le vini sono secchi"], a: 0 },
       { q: "Volgi al plurale: 'L'orologio è rotto'", o: ["Gli orologi sono rotti", "I orologi sono rotti", "Le orologi sono rotti"], a: 0 },
@@ -267,29 +256,22 @@
     const nextBtn = document.getElementById('next');
     const progressEl = document.getElementById('progress');
 
-    // Funzione per mischiare casualmente le domande (Fisher-Yates shuffle)
-    function shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
+    // Algoritmo per mischiare l'ordine delle domande
+    for (let i = quizData.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [quizData[i], quizData[j]] = [quizData[j], quizData[i]];
     }
 
-    // Mischiamo le domande all'avvio per non renderlo noioso
-    shuffle(quizData);
-
-   function loadQuestion() {
+    function loadQuestion() {
         nextBtn.style.display = 'none';
         progressEl.innerText = `Domanda ${currentQ + 1} di ${quizData.length}`;
         const q = quizData[currentQ];
         questionEl.innerText = q.q;
         optionsEl.innerHTML = '';
         
-        // Emparejamos cada opción con su validez original
         let opzioni = q.o.map((opt, index) => ({ testo: opt, isCorrect: (index === q.a) }));
         
-        // Mezclamos las opciones aleatoriamente para el alumno (Fisher-Yates shuffle)
+        // Algoritmo per mischiare l'ordine delle opzioni (A, B, C)
         for (let i = opzioni.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [opzioni[i], opzioni[j]] = [opzioni[j], opzioni[i]];
@@ -300,7 +282,6 @@
             btn.className = 'option';
             btn.innerText = optObj.testo;
             
-            // Etiquetamos internamente la opción correcta para encontrarla si el alumno falla
             if (optObj.isCorrect) {
                 btn.dataset.correct = "true";
             }
@@ -321,7 +302,6 @@
             score++;
         } else {
             btn.classList.add('wrong');
-            // Resaltamos automáticamente cuál era la correcta
             const correctBtn = optionsEl.querySelector('[data-correct="true"]');
             if (correctBtn) correctBtn.classList.add('correct');
         }
